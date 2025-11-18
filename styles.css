@@ -1,0 +1,97 @@
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#0b0f1a;
+    color:#e7eef7;
+  }
+  
+  .hero{
+    text-align:center;
+    padding:20px;
+    background:#11182b;
+    border-bottom:1px solid #222a3c;
+  }
+  .sub{color:#9aa4b2;}
+  
+  .nav{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    padding:10px;
+    background:#0f1625;
+  }
+  .nav button{
+    padding:10px 14px;
+    background:#182236;
+    color:white;
+    border:1px solid #2a354d;
+    cursor:pointer;
+  }
+  .nav button:hover{background:#243355;}
+  
+  .page{
+    display:none;
+    padding:20px;
+    max-width:900px;
+    margin:auto;
+  }
+  .page.active{display:block;}
+  
+  .card{
+    background:#101726;
+    padding:15px;
+    border-radius:8px;
+    border:1px solid #222b3d;
+  }
+  
+  .log{
+    background:#0a111d;
+    padding:12px;
+    border-radius:6px;
+    height:180px;
+    overflow:auto;
+    border-left:3px solid #4da6ff;
+  }
+  
+  .action-btn{
+    background:#ff6b35;
+    border:none;
+    padding:12px 18px;
+    color:white;
+    border-radius:6px;
+    cursor:pointer;
+    margin-bottom:15px;
+  }
+  .action-btn:hover{background:#ff5722;}
+  
+  .hidden{display:none;}
+  
+  .phish{
+    background:#141e2f;
+    border-left:3px solid #ffb14d;
+    padding:12px;
+    border-radius:6px;
+  }
+  
+  .file-list li{
+    padding:6px 0;
+    border-bottom:1px dashed #27354a;
+  }
+  .file-list li.encrypted{color:#6cdcff;}
+  
+  .ransom{
+    background:#1b0f0f;
+    border-left:5px solid #ff6b35;
+    padding:12px;
+    color:#ffdac7;
+    font-family:monospace;
+    white-space:pre-wrap;
+  }
+  
+  footer{
+    text-align:center;
+    padding:15px;
+    margin-top:20px;
+    color:#8894a5;
+  }
+  

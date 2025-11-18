@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Ransomware Attack Simulation (Dummy)</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+<header class="hero">
+  <h1>BlackFjord Collective — Ransomware Simulation</h1>
+  <p class="sub">Our attacker type is: <strong>Cybercriminal (Ransomware)</strong></p>
+</header>
+
+<div class="nav">
+  <button onclick="showPage('home')">Home</button>
+  <button onclick="showPage('recon')">Recon</button>
+  <button onclick="showPage('phishing')">Phishing</button>
+  <button onclick="showPage('encrypt')">Encryption</button>
+  <button onclick="showPage('ransom')">Ransom Note</button>
+</div>
+
+<!-- HOME PAGE -->
+<section id="home" class="page active">
+  <h2>Attack Dashboard (Simulation Only)</h2>
+  <p>This is a safe, educational-only simulation showing how ransomware works.  
+  Click the buttons above to walk through the attack sequence.</p>
+
+  <div class="card">
+    <h3>Timeline Preview</h3>
+    <ul>
+      <li>1. Recon</li>
+      <li>2. Delivery / Phishing</li>
+      <li>3. Execution & Encryption</li>
+      <li>4. Ransom Note Dropped</li>
+    </ul>
+  </div>
+</section>
+
+
+<!-- RECON PAGE -->
+<section id="recon" class="page">
+  <h2>Stage 1 — Reconnaissance</h2>
+  <p>Attacker performs non-harmful simulated scanning...</p>
+
+  <button class="action-btn" onclick="runRecon()">Start Recon Simulation</button>
+
+  <pre id="reconLog" class="log"></pre>
+</section>
+
+
+<!-- PHISHING PAGE -->
+<section id="phishing" class="page">
+  <h2>Stage 2 — Phishing Attack (Fake)</h2>
+  <p>Attacker sends a fake malicious email.</p>
+
+  <button class="action-btn" onclick="sendPhish()">Send Fake Phishing Email</button>
+
+  <div id="phishBox" class="hidden phish">
+    <h3>📧 Fake Email Sent</h3>
+    <p><strong>From:</strong> billing@invoices-secure.example</p>
+    <p><strong>Subject:</strong> Urgent Invoice Attached</p>
+    <p><em>This email contains a dummy malicious attachment.</em></p>
+  </div>
+</section>
+
+
+<!-- ENCRYPT PAGE -->
+<section id="encrypt" class="page">
+  <h2>Stage 3 — Encryption Simulation</h2>
+  <p>Click the button to simulate file encryption.</p>
+
+  <button class="action-btn" onclick="startEncrypt()">Run Encryption Simulation</button>
+
+  <ul id="fileList" class="file-list"></ul>
+</section>
+
+
+<!-- RANSOM PAGE -->
+<section id="ransom" class="page">
+  <h2>Stage 4 — Ransom Note Dropped</h2>
+  <p>The attacker leaves a ransom message.</p>
+
+  <button class="action-btn" onclick="showRansom()">Reveal Ransom Note</button>
+
+  <pre id="ransomNote" class="ransom hidden">
+ALL YOUR FILES ARE ENCRYPTED  
+Pay 12 BTC to wallet: <masked>
+
+Failure to pay in 48 hours = Data Leak.
+This is a simulation only — no real attack.
+  </pre>
+</section>
+
+
+<footer>
+  <p>Simulation only — no real hacking. All content fictional and safe.</p>
+</footer>
+
+<script>
+/* --- PAGE SWITCH --- */
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+/* --- RECON SIMULATION --- */
+function runRecon() {
+  let log = document.getElementById('reconLog');
+  log.innerText = "";
+  let lines = [
+    "[Recon] Scanning website ports...",
+    "[Recon] Checking exposed services...",
+    "[Recon] Found login page...",
+    "[Recon] Harvesting public emails...",
+    "[Recon] Creating phishing list...",
+    "[Recon] Completed."
+  ];
+  let i = 0;
+  let interval = setInterval(() => {
+    log.innerText += lines[i] + "\n";
+    i++;
+    if(i === lines.length){ clearInterval(interval); }
+  }, 700);
+}
+
+/* --- PHISHING SIM --- */
+function sendPhish() {
+  document.getElementById('phishBox').classList.remove('hidden');
+}
+
+/* --- ENCRYPT SIMULATION --- */
+function startEncrypt() {
+  let files = ["PatientData.pdf","BillingInfo.xlsx","ScanReport.jpg","MeetingNotes.docx"];
+  let list = document.getElementById('fileList');
+  list.innerHTML = "";
+
+  let i = 0;
+  let interval = setInterval(()=>{
+    let item = document.createElement("li");
+    item.innerText = files[i] + " → " + files[i] + ".BFLOCK (encrypted)";
+    item.classList.add("encrypted");
+    list.appendChild(item);
+
+    i++;
+    if(i === files.length){ clearInterval(interval); }
+  }, 700);
+}
+
+/* --- RANSOM NOTE --- */
+function showRansom() {
+  document.getElementById('ransomNote').classList.remove('hidden');
+}
+</script>
+
+</body>
+</html>
